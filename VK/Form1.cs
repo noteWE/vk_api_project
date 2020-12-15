@@ -15,6 +15,7 @@ namespace VK
         public Form1()
         {
             InitializeComponent();
+            Console.Write("check");
         }
     }
 }

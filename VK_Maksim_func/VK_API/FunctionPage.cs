@@ -27,16 +27,37 @@ namespace VK_API
 
         private void Upload()
         {
-            pictureBox1.Load("F:\\vk_api_project\\VK_Maksim_func\\VK_API\\sprites\\logo.png");
+            pictureBox1.Load("..\\..\\sprites\\logo.png");
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            string info = File.ReadAllLines("C:\\Users\\AV3N\\Documents\\token.txt").FirstOrDefault();
-            int ind = info.IndexOf('|');
-            string token = info.Substring(ind + 1, info.Length - ind - 1);
-            string date = info.Substring(0, ind);
-            DateTime dt = DateTime.Parse(date);
-            var period = DateTime.Now.CompareTo(dt.AddDays(1));
+            string info = "";
+            string fileName = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Documents\\token.txt";
+            if (File.Exists(fileName))
+            {
+                info = File.ReadAllLines("C:\\Users\\AV3N\\Documents\\token.txt").FirstOrDefault();
+                int ind = info.IndexOf('|');
+                string token = info.Substring(ind + 1, info.Length - ind - 1);
+                string date = info.Substring(0, ind);
+                DateTime dt = DateTime.Parse(date);
+                var period = DateTime.Now.CompareTo(dt.AddDays(1));
 
-            if (period >= 0)
+                if (period >= 0)
+                {
+                    chencheView(false);
+                } else
+                {
+                    chencheView(true);
+                    this.token = token;
+                }
+            }
+            else
+            {
+                chencheView(false);
+            }
+        }
+
+        private void chencheView(bool check)
+        {
+            if (!check)
             {
                 label1.Text = "Действие токена прекратилось, авторизуйтесь заново";
                 Button updateButton = new Button();
@@ -56,7 +77,6 @@ namespace VK_API
                 button3.Visible = true;
                 button4.Visible = true;
                 button5.Visible = true;
-                this.token = token;
             }
         }
 

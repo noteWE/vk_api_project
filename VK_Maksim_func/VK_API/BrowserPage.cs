@@ -35,25 +35,14 @@ namespace VK_API
             {
                 return;
             }
-            string fileName = "C:\\Users\\AV3N\\Documents\\token.txt";
-            try
-            {
-                FileInfo tokenFile = new FileInfo(fileName);
-                if (!(tokenFile.Exists))
-                    tokenFile.Create();
-            }
-            catch
-            {
+            string fileName = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Documents\\token.txt";
 
-            }
-            using (FileStream fStream = new FileStream(fileName, FileMode.Open))
+            using (FileStream fStream = new FileStream(fileName, FileMode.OpenOrCreate))
             {
                 DateTime dt = DateTime.Now;
                 byte[] tempArr = System.Text.Encoding.UTF8.GetBytes(dt.ToString() + "|" + token);
                 fStream.Write(tempArr, 0, tempArr.Length);
             }
-            Close();
-            Close();
         }
     }
 }

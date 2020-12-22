@@ -54,7 +54,7 @@ namespace VK_API
                 label4.Text = "Дата рождения: " + user.BirthDate;
 
                 pictureBox1.Load(user.Photo200.ToString());
-                pictureBox2.Load("F:\\vk_api_project\\VK_Maksim_func\\VK_API\\sprites\\sprite_like.png");
+                pictureBox2.Load("..\\..\\sprites\\sprite_like.png");
                 pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 PhotoGetParams @params = new PhotoGetParams();

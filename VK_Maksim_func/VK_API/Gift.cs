@@ -20,7 +20,7 @@ namespace VK_API
             string result = streamReader.ReadToEnd();
 
             //update json
-            result = result.Remove(0, 32);
+            result = result.Remove(0, result.IndexOf('['));
             result  = result.Remove(result.Length - 2, 2);
 
             //parse json

@@ -25,7 +25,7 @@ namespace VK_API
 
             this.header.Text = "Список подарков";
             this.header.TextAlign = ContentAlignment.MiddleCenter;
-            this.header.Font = new Font("Times New Roman", 24);
+            this.header.Font = new Font("Arial", 24);
             this.header.BackColor = Color.Aqua;
             header.Location = new System.Drawing.Point(200, 50);
             header.Size = new System.Drawing.Size(400, 50);
@@ -61,6 +61,7 @@ namespace VK_API
                 Label from = new Label();
                 from.Text = "Отправитель:\n" + users[i].first_name + " " + users[i].last_name + "\nСообщение: " +"" + gifts[i].message;
                 //from.BorderStyle = BorderStyle.FixedSingle;
+                from.Font = new Font("Consoles", 9);
                 from.Location = new Point(x_label, y_label);
                 from.Size = new System.Drawing.Size(150, 80);
 

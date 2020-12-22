@@ -13,11 +13,12 @@ namespace VK_API
     public partial class Form2 : Form
     {
         Label header = new Label();
+        string token;
 
 
-
-        public Form2()
+        public Form2(string token)
         {
+            this.token = token;
             InitializeComponent();
         }
 
@@ -34,7 +35,7 @@ namespace VK_API
             header.Size = new System.Drawing.Size(400, 50);
             Controls.Add(header);
 
-            List<JSON_FriendID_online> friends = Friend.GetIDFriendsOnline();
+            List<JSON_FriendID_online> friends = Friend.GetIDFriendsOnline(token);
             //coords for labels
             
             

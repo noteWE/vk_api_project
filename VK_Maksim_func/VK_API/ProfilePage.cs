@@ -57,7 +57,7 @@ namespace VK_API
             }
             else
             {
-                city = "не указан";
+                city = city + "не указан";
             }
             label5.Text = city;
             label4.Text = "Дата рождения: " + user.BirthDate;

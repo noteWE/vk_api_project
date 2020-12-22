@@ -33,7 +33,7 @@ namespace VK_API
             string fileName = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile) + "\\Documents\\token.txt";
             if (File.Exists(fileName))
             {
-                info = File.ReadAllLines("C:\\Users\\AV3N\\Documents\\token.txt").FirstOrDefault();
+                info = File.ReadAllLines(fileName).FirstOrDefault();
                 int ind = info.IndexOf('|');
                 string token = info.Substring(ind + 1, info.Length - ind - 1);
                 string date = info.Substring(0, ind);

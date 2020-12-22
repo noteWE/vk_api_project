@@ -49,9 +49,18 @@ namespace VK_API
                     ProfileFields.FollowersCount).FirstOrDefault();
 
                 label1.Text = user.FirstName + " " + user.LastName;
-                label2.Text = user.Status;
-                label5.Text = "Город: " + user.City.Title;
-                label4.Text = "Дата рождения: " + user.BirthDate;
+            label2.Text = user.Status;
+            string city = "Город: ";
+            if (user.City != null)
+            {
+                city = city + user.City.Title;
+            }
+            else
+            {
+                city = "не указан";
+            }
+            label5.Text = city;
+            label4.Text = "Дата рождения: " + user.BirthDate;
 
                 pictureBox1.Load(user.Photo200.ToString());
                 pictureBox2.Load("..\\..\\sprites\\sprite_like.png");

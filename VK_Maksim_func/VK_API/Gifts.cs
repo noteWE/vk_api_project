@@ -13,9 +13,11 @@ namespace VK_API
     public partial class Gifts : Form
     {
         Label header = new Label();
+        string token;
         
-        public Gifts()
+        public Gifts(string token)
         {
+            this.token = token;
             InitializeComponent();
         }
 
@@ -31,7 +33,7 @@ namespace VK_API
             header.Size = new System.Drawing.Size(400, 50);
             Controls.Add(header);
 
-            List<JSON_Gift> gifts = Gift.getGifts();
+            List<JSON_Gift> gifts = Gift.getGifts(token);
             List<JSON_User> users = User.getUserByID(gifts);
 
             int x_picture = 50;
